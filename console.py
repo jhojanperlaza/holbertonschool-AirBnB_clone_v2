@@ -120,6 +120,9 @@ class HBNBCommand(cmd.Cmd):
             return
 
         command = args.split()
+        if (len(command) <= 1):
+            return
+
         name_class = command[0]
 
         if name_class not in HBNBCommand.classes:
