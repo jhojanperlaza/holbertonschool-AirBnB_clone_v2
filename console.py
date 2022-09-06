@@ -129,18 +129,14 @@ class HBNBCommand(cmd.Cmd):
         new_instance = HBNBCommand.classes[name_class]()
         for param in command[1:]:
             value_syntax = param.split('=')
-            if len(value_syntax)<= 1:
-                continue
             if '"' in value_syntax[1]:
-                value_syntax[1] = value_syntax[1].replace('_', ' ')
+                value_syntax[1] = value_syntax[1].replace('_', ' ').strip('"')
                 setattr(new_instance,
-                        value_syntax[0], value_syntax[1].replace('"', ''))
+                        value_syntax[0], value_syntax[1])
             if "." in value_syntax[1]:
-                setattr(new_instance, value_syntax[0], float(value_syntax[1]))
+                setattr(new_instance, value_syntax[0], float(value_syntax[1].strip('"')))
             elif value_syntax[1].isdigit():
-                setattr(new_instance, value_syntax[0], int(value_syntax[1]))
-            else:
-                continue
+                setattr(new_instance, value_syntax[0], int(value_syntax[1].strip('"')))
 
         storage.save()
         print(new_instance.id)
