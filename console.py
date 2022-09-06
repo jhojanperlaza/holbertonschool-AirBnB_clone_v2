@@ -130,12 +130,15 @@ class HBNBCommand(cmd.Cmd):
         for param in command[1:]:
             value_syntax = param.split('=')
             if '"' in value_syntax[1]:
+                value_syntax[1] = value_syntax[1].replace('_', ' ')
                 setattr(new_instance,
                         value_syntax[0], value_syntax[1].replace('"', ''))
-            elif "." in value_syntax[1]:
+            if "." in value_syntax[1]:
                 setattr(new_instance, value_syntax[0], float(value_syntax[1]))
-            else:
+            elif value_syntax[1].isdigit():
                 setattr(new_instance, value_syntax[0], int(value_syntax[1]))
+            else:
+                continue
 
         storage.save()
         print(new_instance.id)
