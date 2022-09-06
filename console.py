@@ -129,6 +129,8 @@ class HBNBCommand(cmd.Cmd):
         new_instance = HBNBCommand.classes[name_class]()
         for param in command[1:]:
             value_syntax = param.split('=')
+            if len(value_syntax)<= 1:
+                continue
             if '"' in value_syntax[1]:
                 value_syntax[1] = value_syntax[1].replace('_', ' ')
                 setattr(new_instance,
