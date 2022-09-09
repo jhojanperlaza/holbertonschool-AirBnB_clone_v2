@@ -50,6 +50,8 @@ class DBStorage:
 
         for obj in objects:
             key = "{}.{}".format(obj.__class__.__name__, obj.id)
+            if '_sa_instance_state' in obj.__dict__:
+                del obj.__dict__['_sa_instance_state']
             dict_all[key] = obj
 
         return dict_all
