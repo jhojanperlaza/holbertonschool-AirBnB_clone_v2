@@ -24,7 +24,7 @@ ln -sf  /data/web_static/releases/test/ /data/web_static/current
 chown -R ubuntu:ubuntu /data/
 
 #
-new_string="location hbnb_static {alias /data/web_static/current/;}"
+new_string="location /hbnb_static {alias /data/web_static/current/;}"
 string_to_replace="SSL configuration"
 sed -i "/$string_to_replace/ a $new_string" /etc/nginx/sites-enabled/default
 sudo service nginx restart
