@@ -21,7 +21,7 @@ ln -sf  /data/web_static/releases/test/ /data/web_static/current
 
 # change group and user
 # link: https://linuxize.com/post/linux-chown-command/
-chown -R ubuntu: /data/
+chown -R ubuntu:ubuntu /data/
 
 #
 new_string="location hbnb_static {alias /data/web_static/current/;}"
