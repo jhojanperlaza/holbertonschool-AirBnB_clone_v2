@@ -13,7 +13,10 @@ def do_pack():
     get_time = time.localtime()  # get struct_time
     time_string = time.strftime("web_static_%Y%m%d%H%M%S", get_time)
 
-    command = local("tar -cvzf versions/{}.tgz web_static".format(time_string))
+    command = "versions/{}.tgz".format(time_string)
+    command_exc = local("tar -cvzf {} web_static".format(command))
 
-    if command.failed:
+    if command_exc.failed:
         return None
+    else:
+        return command
