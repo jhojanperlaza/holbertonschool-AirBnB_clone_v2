@@ -7,7 +7,7 @@ from fabric.api import env
 import sys
 
 env.hosts = ['3.91.46.188', '34.207.144.236']
-env.user = sys.argv[7]
+env.user = 'ubuntu'
 
 
 def do_deploy(archive_path):
@@ -20,7 +20,7 @@ def do_deploy(archive_path):
     string_path = "/data/web_static/releases/{}/".format(filename)
 
     try:
-        put(archive_path, '/tmp/')
+        put(archive_path, '/tmp/{}'.format(filename_tgz))
         run("mkdir -p {}".format(string_path))
         run("tar -xzf /tmp/{} -C {}".format(filename_tgz, string_path))
         run("rm /tmp/{}".format(filename_tgz))
