@@ -3,7 +3,6 @@
 Distributes an archive to your web servers,
 using the function do_deploy
 """
-
 import sys
 from fabric.api import *
 
@@ -12,9 +11,7 @@ env.user = sys.argv[7]
 
 
 def do_deploy(archive_path):
-    """
-    distributes an archive to your web servers
-    """
+    """ distributes an archive"""
     if not archive_path:
         return False
     filename_tgz = archive_path.split('/')[1]
