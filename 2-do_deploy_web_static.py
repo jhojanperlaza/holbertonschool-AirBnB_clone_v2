@@ -5,9 +5,22 @@ using the function do_deploy
 """
 import sys
 from fabric.api import *
+import time
 
 env.hosts = ['3.91.46.188', '34.207.144.236']
 env.user = sys.argv[7]
+
+
+def do_pack():
+    """ generates a .tgz archive """
+    local("mkdir -p versions")
+    get_time = time.localtime()  # get struct_time
+    time_string = time.strftime("web_static_%Y%m%d%H%M%S", get_time)
+
+    command = local("tar -cvzf versions/{}.tgz web_static".format(time_string))
+
+    if command.failed:
+        return None
 
 
 def do_deploy(archive_path):
