@@ -8,6 +8,7 @@ import time
 
 
 def do_pack():
+    """ generates a .tgz archive """
     local("mkdir -p versions")
     get_time = time.localtime()  # get struct_time
     time_string = time.strftime("web_static_%Y%m%d%H%M%S", get_time)
