@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+distributes an archive to your web servers
+"""
 from fabric.api import *
 import sys
 
