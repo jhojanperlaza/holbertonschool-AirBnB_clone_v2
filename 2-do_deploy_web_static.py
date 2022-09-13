@@ -2,7 +2,8 @@
 """
 distributes an archive to your web servers
 """
-from fabric.api import *
+from fabric.api import put, run
+from fabric.api import env
 import sys
 
 env.hosts = ['3.91.46.188', '34.207.144.236']
