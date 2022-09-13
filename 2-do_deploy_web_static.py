@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-import sys
 from fabric.api import *
+import sys
 
 env.hosts = ['3.91.46.188', '34.207.144.236']
 env.user = sys.argv[7]
