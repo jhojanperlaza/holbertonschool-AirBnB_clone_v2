@@ -13,6 +13,7 @@ env.key_ssh = '~/.ssh/school'
 
 
 def deploy():
+    """deploy functionality"""
     path = do_pack()
     if not path:
         return False
