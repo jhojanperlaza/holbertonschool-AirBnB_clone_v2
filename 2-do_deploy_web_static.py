@@ -12,6 +12,9 @@ env.user = sys.argv[7]
 
 
 def do_deploy(archive_path):
+    """
+    distributes an archive to your web servers
+    """
     if not archive_path:
         return False
     filename_tgz = archive_path.split('/')[1]
