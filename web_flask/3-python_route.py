@@ -28,8 +28,9 @@ def third_route(text):
     return "C {}".format(escape(text))
 
 
+@app.route("/python/", defaults={'text': 'is cool'})
 @app.route("/python/<text>", strict_slashes=False)
-def fourth_route(text="is cool"):
+def fourth_route(text):
     """ display “C ” followed by the value= text"""
     text = text.replace("_", " ")
     return "Python {}".format(escape(text))
