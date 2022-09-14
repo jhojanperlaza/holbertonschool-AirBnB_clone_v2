@@ -40,10 +40,12 @@ def five_route(n):
     """ display “n is a number” only if n is an integer"""
     return "{} is a number".format(escape(n))
 
+
 @app.route("/number_template/<int:n>", strict_slashes=False)
 def six_route(n):
     """ display a HTML page only if n is an integer"""
     return render_template('5-number.html', data=n)
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
