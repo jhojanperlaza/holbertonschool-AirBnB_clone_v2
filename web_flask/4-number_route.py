@@ -36,7 +36,7 @@ def fourth_route(text):
 
 
 @app.route("/number/<n>", strict_slashes=False)
-def fourth_route(number):
+def five_route(number):
     """ display “n is a number” only if n is an integer"""
     if number.is_integer():
         return "{} is a number".format(escape(number))
