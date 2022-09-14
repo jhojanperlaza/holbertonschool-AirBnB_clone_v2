@@ -32,7 +32,7 @@ def third_route(text):
 def fourth_route(text="is cool"):
     """ display “C ” followed by the value= text"""
     text = text.replace("_", " ")
-    return "C {}".format(escape(text))
+    return "Python {}".format(escape(text))
 
 
 if __name__ == '__main__':
