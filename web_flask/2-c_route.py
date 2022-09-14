@@ -20,6 +20,7 @@ def second_route():
     """print simple string"""
     return "HBNB"
 
+
 @app.route("/c/<text>", strict_slashes=False)
 def third_route(text):
     """ display “C ” followed by the value"""
