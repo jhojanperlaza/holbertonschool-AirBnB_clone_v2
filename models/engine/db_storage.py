@@ -29,7 +29,8 @@ class DBStorage:
         MySQL_database = os.getenv('HBNB_MYSQL_DB')
 
         self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.format(
-            MySQL_user, MySQL_password, MySQL_host, MySQL_database), pool_pre_ping=True)
+            MySQL_user, MySQL_password, MySQL_host, MySQL_database),
+            pool_pre_ping=True)
 
         if (os.getenv('HBNB_ENV') == 'test'):
             Base.metadata.drop_all(self.__engine)
@@ -41,7 +42,7 @@ class DBStorage:
 
         dict_all = {}
 
-        if cls != None:
+        if cls is not None:
             value = dict_clases[cls]
             objects = self.__session.query(value).all()
         else:
@@ -55,7 +56,6 @@ class DBStorage:
             dict_all[key] = obj
 
         return dict_all
-
 
     def new(self, obj):
         """add the object to the current database session"""
