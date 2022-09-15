@@ -16,7 +16,8 @@ def List_of_states():
     query_state = storage.all(State).values()
     query_citys = storage.all(City).values()
 
-    return render_template("8-cities_by_states.html", data=query_state, data2=query_citys)
+    return render_template("8-cities_by_states.html",
+                           data=query_state, data2=query_citys)
 
 
 @app.teardown_appcontext
