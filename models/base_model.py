@@ -31,7 +31,7 @@ class BaseModel:
                     self.created_at = datetime.now()
                 if 'id' not in kwargs.keys():
                     self.id = str(uuid.uuid4())
-                elif key != "__class__":
+                if key != "__class__":
                     setattr(self, key, value)
 
     def __str__(self):
