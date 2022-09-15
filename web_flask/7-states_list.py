@@ -14,9 +14,11 @@ def List_of_states():
     query_storage = storage.all(State).values()
     return render_template("7-states_list.html", data=query_storage)
 
+
 @app.teardown_appcontext
 def close(self):
     storage.close()
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
