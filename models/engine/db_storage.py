@@ -43,7 +43,10 @@ class DBStorage:
         dict_all = {}
 
         if cls is not None:
-            value = dict_clases[cls]
+            if type(cls) is str:
+                value = dict_clases[cls]
+            else:
+                value = dict_clases[cls.__name__]
             objects = self.__session.query(value).all()
         else:
             for clas, name in dict_clases.items():
